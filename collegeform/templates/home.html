@@ -1,0 +1,157 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+<style>
+    .home-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        gap: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f4f4f4;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .button-container{
+        display: flex;
+        
+        justify-content: space-between;
+        margin-bottom: 20px;
+       
+    }
+    .search-conatainer{
+        margin-bottom: 20px;
+    }
+</style>
+
+
+<h1 style="text-align: center;">Welcome to the Form</h1>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@trevoreyre/autocomplete-js/dist/style.css"
+/>
+<link rel="stylesheet" href="{% static 'home.css' %}">
+
+<div class="home-container">
+    <div>
+        <h3>Select class</h3>
+        <hr>
+        <button type="create"> <a href="{% url 'createclass' %}">Create Class</a> </button>
+       
+        
+        <hr>
+        <a href="{% url 'home' %}">All</a>
+        <hr>
+        
+        
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Class</th>
+                        
+                        
+                        
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for class in Classs %}
+                    <tr>
+                        <td>{{class.id}}</td>
+                        <td><a href="{% url 'home' %}?q={{class.name}}">{{ class.name }}</a></td>
+                        <td>
+                            <a href="{% url 'deleteclass' class.id %}">Delete  </a>
+                        </td>
+                        
+                        
+                        
+                        
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div>
+        <h5>{{ student_count }} total number of Students</h5>
+        <div class="button-contianer"><a href="{% url 'create_student' %}" style="display: inline-block; padding: 10px 15px; background-color: #007BFF; color: #fff; border-radius: 4px; text-decoration: none;">Create Student</a>
+         <a href="{% url 'printstudents' %}">Print</a>
+         <a href="{% url 'export_to_excel' %}" class="btn btn-primary">Export to Excel</a> </div>
+        
+        <div class="search-container">
+            <label for="search-input">Search:</label>
+            <form method="GET" action="{% url 'home' %}">
+                <input type="text" id="search-input" name="q" placeholder="Search students..." />
+                
+                </select>
+            </form>
+            
+        </div>
+        
+      
+        
+        
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Father's Name</th>
+                        <th>Class</th>
+                        <th>D.O.B</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in Studentss %}
+                    <tr>
+                        <td>{{student.id}}</td>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.fathername }}</td>
+                        <td>{{ student.Classs }}</td>
+                        <td> {{student.date_of_birth}} </td>
+                        <td>
+                            <a href="{% url 'updatestudent' student.id %}" style="color:blue; text-decoration: none; margin-right: 10px;">Edit</a>
+                            <a href="{% url 'deletestudent' student.id %}" style="color: blue; text-decoration: none;">Delete</a>
+                            
+                        </td>
+                        
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,92 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .fees-container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .fees-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f4f4f4;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .button-container {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .button-container a {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: #007BFF;
+        color: #fff;
+        border-radius: 4px;
+        text-decoration: none;
+        margin: 5px;
+    }
+
+    .button-container a:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<div class="fees-container">
+    <h2>Fees for {{ student.name }}</h2>
+    <div class="button-container">
+        <a href="{% url 'createfee' student.id %}">Add Fee</a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Total Fees</th>
+                <th>Paid Fees</th>
+                <th>Due Fees</th>
+                <th>Payment Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fee in fees %}
+            <tr>
+                <td>{{ fee.total_fees }}</td>
+                <td>{{ fee.paid_fees }}</td>
+                <td>{{ fee.due_fees }}</td>
+                <td>{{ fee.payment_date }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" style="text-align: center;">No fees records found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

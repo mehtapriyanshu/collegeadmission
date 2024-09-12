@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'delete.css' %}">
+
+<form method="POST" action="">
+    {%  csrf_token %}
+    <p>Are u sure want to delete this class</p>
+    
+    <h1>{{Classs.name}}</h1>
+  
+    <hr>
+
+    <a href="{% url 'home' %}" style="display: inline-block; padding: 10px 15px; background-color: #007BFF; color: #fff; border-radius: 4px; text-decoration: none;"">Back</a>
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    {% if not error %}
+    <input type="submit" values="Confirm">
+    {% endif %}
+</form>
+
+
+
+
+
+
+
+{% endblock content %}

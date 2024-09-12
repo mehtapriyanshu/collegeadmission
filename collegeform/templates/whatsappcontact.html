@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Contact</title>
+</head>
+<body>
+    <form id="contactForm">
+        <label for="contactNumber">Enter your contact number:</label>
+        <input type="text" id="contactNumber" name="contactNumber" required>
+        <button type="button" onclick="sendWhatsAppMessage()">Contact Us on WhatsApp</button>
+    </form>
+
+    <script>
+        function sendWhatsAppMessage() {
+            var contactNumber = document.getElementById('contactNumber').value;
+            var message = 'Please provide your contact number: ' + contactNumber;
+            var whatsappUrl = 'https://wa.me/1234567890?text=' + encodeURIComponent(message);
+            window.location.href = whatsappUrl;
+        }
+    </script>
+</body>
+</html>

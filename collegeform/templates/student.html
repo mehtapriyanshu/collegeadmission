@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'student.css' %}">
+
+<div class="container">
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Father's Name</th>
+                <th>Class</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.fathername }}</td>
+                <td>{{ student.Classs }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="{% url 'updatestudent' student.id %}">Edit</a>
+    <hr>
+   
+</div>
+{% endblock content %}

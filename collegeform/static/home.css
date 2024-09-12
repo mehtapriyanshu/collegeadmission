@@ -1,0 +1,167 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container that holds the sidebar and main content */
+.home-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Sidebar styling */
+.home-container > div:first-child {
+    background-color: #efe9e9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px rgba(183, 102, 102, 0.1);
+}
+
+/* Class selection list */
+.home-container > div:first-child h3 {
+    font-size: 1.5em;
+    color: #d51919;
+    margin-bottom: 15px;
+}
+/* in student list */
+.home-container > div:first-child a {
+    display: block;
+    color: #1a29f5;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.home-container > div:first-child a:hover {
+    color: #35e00b;
+}
+
+/* Separator between classes */
+.home-container > div:first-child hr {
+    border: 0;
+    border-top: 1px solid #c41a1a;
+}
+
+/* Main content styling */
+.home-container > div:last-child {
+    background-color: #fdf9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Total number of students */
+.home-container > div:last-child h5 {
+    color: #b92e2e;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Button for creating new student */
+.home-container > div:last-child a {
+    display: inline-block;
+    background-color: #e0930f;
+    color: #6b0fb1;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+    
+}
+
+.home-container > div:last-child a:hover {
+    background-color: #26d192;
+}
+
+/* Student list */
+.home-container > div:last-child .student-list {
+    margin-top: 20px;
+}
+
+.home-container > div:last-child .student-list > div {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.home-container > div:last-child .student-list > div h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.home-container > div:last-child .student-list > div h5 {
+    font-size: 1em;
+    color: #888;
+    margin: 5px 0;
+}
+
+.home-container > div:last-child .student-list > div a {
+    margin-right: 100px;
+    color: #d3c7c9;
+    text-decoration: none;
+}
+
+.home-container > div:last-child .student-list > div a:hover {
+    text-decoration: underline;
+}
+
+button[type="create"]{
+    background-color: lightblue;
+    height: auto;
+    border: #1a29f5;
+    margin: auto;
+    width: 200px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center; /* Aligns label and input on the same line */
+    margin: 20px 0;
+}
+
+.search-container label {
+    margin-right: 10px; /* Adds space between label and input */
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.search-container input[type="text"] {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250px;
+    transition: border-color 0.3s ease;
+}
+
+.search-container input[type="text"]:focus {
+    outline: none;
+    border-color: #007BFF;
+}
+
+.search-container input::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.print-container{
+    align-items: right;
+}
+
+
+
+.deleteclass{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid pink;
+    padding: 10px 0;
+    
+}

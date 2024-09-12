@@ -1,0 +1,56 @@
+/* General form styling */
+form {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* CSRF token and label */
+form p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Name display styling */
+form p strong {
+    font-size: 1.3em;
+    color: #555;
+}
+
+/* Submit and Go Back buttons */
+form input[type="submit"], form a {
+    display: inline-block;
+    margin: 10px 15px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Submit button styling */
+form input[type="submit"] {
+    background-color: #dc3545; /* Danger color */
+    color: #fff;
+    border: none;
+}
+
+form input[type="submit"]:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Go Back link styling */
+form a {
+    background-color: #007bff;
+    color: #fff;
+}
+
+form a:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

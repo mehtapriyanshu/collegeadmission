@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Student</title>
+    <!-- Include jQuery and jQuery UI for autocomplete -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+    <h1>Create Student Form</h1>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="search" name="name" placeholder="Search student name...">
+        <br><br>
+
+        <label for="fathername">Father's Name:</label>
+        <input type="text" id="fathername" name="fathername">
+        <br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Add Autocomplete Script -->
+    <script>
+        $(document).ready(function() {
+            $('#search').autocomplete({
+                source: "/autocomplete-search/",  // URL to fetch search results
+                minLength: 2  // Start suggesting after typing 2 characters
+            });
+        });
+    </script>
+</body>
+</html>
